@@ -14,7 +14,7 @@ class XrefController extends Controller
      */
     public function index()
     {
-        return ['data' => Xref::all()];
+        return Xref::all();
     }
 
     /**
@@ -26,7 +26,7 @@ class XrefController extends Controller
     public function show(Xref $xref)
     {
         $xref->load('units')->load('calls');
-        return ['data' => $xref];
+        return $xref;
     }
 
     /**
