@@ -42,7 +42,15 @@ class XrefController extends Controller
             'name' => 'required'
         ]);
 
-        $xref = new Xref($request->all());
+        // Check for unprocessable content 
+        $xref = new Xref();
+        foreach ($request->all() as $key => $value) {
+            if (!$xref->isRelation($key) && !$xref->isFillable($key)) {
+                return response()->json(["message" => "The " . $key . " field cannot be processed"], 422);
+            }
+        }
+
+        $xref->fill($request->all());
         $xref->createdBy = $request->user()->email;
         $xref->save();
 
