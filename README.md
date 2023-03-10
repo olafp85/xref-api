@@ -4,13 +4,13 @@ This API stores and retrieves an analysis of cross references from an SAP backen
 
 ## Available routes
 ```
-POST    api/login
-POST    api/logout
-POST    api/register
-GET     api/xrefs
-POST    api/xrefs
-GET     api/xrefs/search/{name}
-GET     api/xrefs/{id}
-PUT     api/xrefs/{id}
-DELETE  api/xrefs/{id}
+POST    login
+POST    logout
+POST    register
+GET     xrefs
+POST    xrefs
+GET     xrefs/search/{name}
+GET     xrefs/{id}
+PUT     xrefs/{id}
+DELETE  xrefs/{id}
 ```
